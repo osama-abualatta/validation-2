@@ -15,7 +15,7 @@
               rules="required"
               :bails="false"
               v-slot="{ errors }"
-              name="الاسم"
+              name="صورة"
             >
               <picture-input
                 v-model="selectImage"

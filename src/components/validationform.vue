@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="validation2">
     <ValidationObserver v-slot="{ handleSubmit, reset }">
       <form @submit.prevent="handleSubmit(onSubmit)" @reset.prevent="reset">
         <div class="row mt-1">
@@ -383,7 +383,7 @@
                 class="form-control "
                 id="inputCode"
                 placeholder=" المدينة"
-                v-model="POBox"
+                v-model="city"
               />
               <ul class="error">
                 <li v-for="error in errors" :key="error">{{ error }}</li>
@@ -402,7 +402,7 @@
                 class="form-control "
                 id="inputCode"
                 placeholder="رقم المدينة"
-                v-model="POBox"
+                v-model="citynumber"
               />
               <ul class="error">
                 <li v-for="error in errors" :key="error">{{ error }}</li>
@@ -443,6 +443,8 @@ export default {
   data() {
     return {
       POBox: "",
+      city:"",
+      citynumber:"",
       phone1: "",
       phone2: "",
       phone3: "",
@@ -481,11 +483,22 @@ export default {
         (this.inputNationality = ""),
         (this.inputGroupType = "");
     },
+        onChange() {
+      console.log("New picture selected!");
+      if (this.$refs.pictureInput.image) {
+        console.log("Picture loaded.");
+      } else {
+        console.log("FileReader API not supported: use the <form>, Luke!");
+      }
+    }
   },
 };
 </script>
 
 <style>
+#validation{
+  font-size: 20px;
+}
 .fa-plus {
   color: #17a2b8;
   padding: 5px;

@@ -15,7 +15,7 @@
               rules="required"
               :bails="false"
               v-slot="{ errors }"
-              name="صورة"
+              name="صورة "
             >
               <picture-input
                 v-model="selectImage"
@@ -38,7 +38,6 @@
                 <li v-for="error in errors" :key="error">{{ error }}</li>
               </ul>
             </ValidationProvider>
-        
           </div>
         </div>
         <div class="form-group row">
@@ -146,7 +145,6 @@
               </ul>
             </ValidationProvider>
           </div>
-       
 
           <label class="col-md-2"> الجنس</label>
           <div class="col-md-4">
@@ -163,7 +161,6 @@
               </ul>
             </ValidationProvider>
           </div>
-      
         </div>
         <div class="row mt-1">
           <label class="col-md-2"> <span>القسم</span> </label>
@@ -184,7 +181,7 @@
               </ul>
             </ValidationProvider>
           </div>
-  
+
           <label class="col-md-2"> الحالةالاجنماعية</label>
           <div class="col-md-4">
             <ValidationProvider
@@ -200,7 +197,6 @@
               </ul>
             </ValidationProvider>
           </div>
-          
         </div>
         <div class="row mt-1">
           <label class="col-md-2">رقم حساب البنك </label>
@@ -223,7 +219,6 @@
               </ul>
             </ValidationProvider>
           </div>
-         
 
           <label class="col-md-2"> رقم مكتب العمل</label>
           <div class="col-md-4">
@@ -245,7 +240,6 @@
               </ul>
             </ValidationProvider>
           </div>
-      
         </div>
         <div class="row mt-1">
           <label class="col-md-2"> بريد الكتروني </label>
@@ -297,7 +291,7 @@
                 class="form-control "
                 id="inputCode"
                 placeholder="هاتف2"
-                v-model="phone1"
+                v-model="phone2"
               />
               <ul class="error">
                 <li v-for="error in errors" :key="error">{{ error }}</li>
@@ -311,7 +305,7 @@
                 class="form-control "
                 id="inputCode"
                 placeholder="هاتف3"
-                v-model="phone1"
+                v-model="phone3"
               />
               <ul class="error">
                 <li v-for="error in errors" :key="error">{{ error }}</li>
@@ -331,7 +325,7 @@
                 class="form-control "
                 id="inputCode"
                 placeholder="قاكس"
-                v-model="phone1"
+                v-model="fax"
               />
               <ul class="error">
                 <li v-for="error in errors" :key="error">{{ error }}</li>
@@ -450,6 +444,9 @@ export default {
     return {
       POBox: "",
       phone1: "",
+      phone2: "",
+      phone3: "",
+      fax: "",
       inputName: "",
       qualification: "",
       priorexperiences: "",

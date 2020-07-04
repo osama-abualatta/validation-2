@@ -1,14 +1,26 @@
 <template>
   <div class="container">
-    <validationform></validationform>
+      <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <router-link class="nav-link " to="table">Table</router-link>
+  </li>
+  <li class="nav-item">
+    <router-link class="nav-link" to="editemployee">Vuex</router-link>
+  </li>
+  <li class="nav-item">
+    <router-link class="nav-link active " to="/" exact> اضافة موظف</router-link>
+  </li>
+  
+</ul>
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import validationform from "./components/validationform";
+
 export default {
-  components: {
-    validationform,
-  },
+ 
 };
 </script>
-<style></style>
+<style>
+
+</style>

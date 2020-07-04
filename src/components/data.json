@@ -1,0 +1,29 @@
+{
+"data":[
+{
+    "name":"osama",
+    "degree":"ComputerEngeniring",
+    "experains":"two years",
+    "dateOfBirth":"5/5/2005",
+    "nationality":"palestine",
+    "gender":"male"
+},
+{
+
+    "name":"mohammed",
+    "degree":"ComputerEngeniring",
+    "experains":"5 years",
+    "dateOfBirth":"15/4/2005",
+    "nationality":"palestine",
+    "gender":"male"
+},
+{
+    "name":"lubna",
+    "degree":"ComputerEngeniring",
+    "experains":"3 years",
+    "dateOfBirth":"15/11/2005",
+    "nationality":"palestine",
+    "gender":"female"
+}
+]
+}

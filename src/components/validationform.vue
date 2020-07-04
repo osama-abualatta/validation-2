@@ -10,7 +10,7 @@
 
         <div class="row mt-1">
           <div class="col-md-3"></div>
-          <div class="col-md-5">
+          <!-- <div class="col-md-5">
             <ValidationProvider
               rules="required"
               :bails="false"
@@ -38,7 +38,7 @@
                 <li v-for="error in errors" :key="error">{{ error }}</li>
               </ul>
             </ValidationProvider>
-          </div>
+          </div> -->
         </div>
         <div class="form-group row">
           <label class="col-md-2">اسم الموظف </label>
@@ -54,7 +54,7 @@
                 class="form-control "
                 id="inputCode"
                 placeholder="الاسم"
-                v-model="inputName"
+                v-model="form.name"
               />
               <ul class="error">
                 <li v-for="error in errors" :key="error">{{ error }}</li>
@@ -76,7 +76,7 @@
                 class="form-control "
                 id="inputCode"
                 placeholder="المؤهل العلمي"
-                v-model="qualification"
+                v-model="form.job"
               />
               <ul class="error">
                 <li v-for="error in errors" :key="error">{{ error }}</li>
@@ -432,19 +432,25 @@ import Datepicker from "vuejs-datepicker";
 import { ar } from "vuejs-datepicker/dist/locale";
 import Multiselect from "vue-multiselect";
 import "vue-multiselect/dist/vue-multiselect.min.css";
-import PictureInput from "vue-picture-input";
+// import PictureInput from "vue-picture-input";
+import axios from 'axios';
 
 export default {
   components: {
     Datepicker,
     Multiselect,
-    PictureInput,
+    // PictureInput,
   },
   data() {
     return {
+      form:{
+         "name": "morpheus",
+         "job": "leader"
+    
+    },
       POBox: "",
-      city:"",
-      citynumber:"",
+      city: "",
+      citynumber: "",
       phone1: "",
       phone2: "",
       phone3: "",
@@ -464,12 +470,23 @@ export default {
       address: "",
       ar: ar,
       selected: null,
+      data: {},
       options: ["list", "of", "options"],
     };
   },
+  mounted(){
+// axios.get('https://reqres.in/api/users?page=2')
+//     .then(res => this.data = res.data.data)
+    
+//     .catch(error => console.log(error.response.data))
+  },
   methods: {
-    onSubmit() {
-      alert("Form has been submitted!");
+
+    onSubmit() {  
+    axios.post('https://reqres.in/api/users',this.form)
+    .then(res => this.data = res.data.data)
+    
+    .catch(error => console.log(error.response.data))
     },
     reset() {
       (this.inputTaxNumber = ""),
@@ -483,20 +500,20 @@ export default {
         (this.inputNationality = ""),
         (this.inputGroupType = "");
     },
-        onChange() {
+    onChange() {
       console.log("New picture selected!");
       if (this.$refs.pictureInput.image) {
         console.log("Picture loaded.");
       } else {
         console.log("FileReader API not supported: use the <form>, Luke!");
       }
-    }
+    },
   },
 };
 </script>
 
 <style>
-#validation{
+#validation {
   font-size: 20px;
 }
 .fa-plus {
@@ -505,5 +522,6 @@ export default {
 }
 .error {
   color: red;
+  direction: ltr;
 }
 </style>
